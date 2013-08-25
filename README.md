@@ -70,7 +70,7 @@ Here are some examples:
     my_command | tee $OF_PREFIX-1.out
     assert_ran_ok "my_command ran ok"
     assert 'got the expected output from my_command' \
-      'diff -q $OF_PREFIX-1.out $OF_PREFIX-1.cmp'
+      'diff -u $OF_PREFIX-1.out $OF_PREFIX-1.cmp'
 
 ## Running tests
 
@@ -119,3 +119,6 @@ Once you have finished running tests, `clean.sh` will remove any `.log` and
 * Stdout and stderr are redirected to `01-foo-test.log`, so you don't need to
   manually redirect them when running commmands. In fact, doing so may hinder
   you should you need to look at why a test failed.
+* The above also applies to diff commands. If you use diff -u, then when the
+  test fails, you'll have a nice diff between the two files waiting for you in
+  the log file.
