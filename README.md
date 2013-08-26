@@ -70,7 +70,7 @@ Here are some examples:
     my_command | tee $OF_PREFIX-1.out
     assert_ran_ok "my_command ran ok"
     assert 'got the expected output from my_command' \
-      'diff -u $OF_PREFIX-1.out $OF_PREFIX-1.cmp'
+      'diff -u $OF_PREFIX-1.cmp $OF_PREFIX-1.out'
 
 ## Running tests
 
